@@ -18,12 +18,13 @@
 					</button>
 					<!-- <a class="navbar-brand" href="#">WebSiteName</a> -->
 			    </div>
+			    <!-- top nav bar -->
 			    <div class="collapse navbar-collapse" id="myNavbar">
 			      <ul class="nav navbar-nav" style="margin-top: 16px;">
-			        <li><%= link_to 'Home', root_path, style:"padding: 3px 16px; margin: 0 8px;" %></li>
-			        <li><%= link_to 'Blog', blogs_path, style:"padding: 3px 16px; margin: 0 8px;" %></li>
-			        <li><a href="#" style="padding: 3px 16px; margin: 0 8px;">Highscores</a></li> 
-			        <li><%= link_to 'FAQs', faqs_path, style:"padding: 3px 16px; margin: 0 8px;" %></li> 
+			        <li><%= link_to '', root_path, class: "glyphicon glyphicon-home", style:"padding: 3px 16px; margin: 0 8px; color: white;" %></li>
+			        <li><%= link_to 'Blog', blogs_path, style:"padding: 3px 16px; margin: 0 8px; color: white;" %></li>
+			        <li><a href="#" style="padding: 3px 16px; margin: 0 8px; color: white;">Highscores</a></li> 
+			        <li><%= link_to 'FAQs', faqs_path, style:"padding: 3px 16px; margin: 0 8px; color: white;" %></li> 
 			      </ul>
 			      <ul class="nav navbar-nav navbar-right">
 			        <li><a href="#" style="padding: 3px 16px;"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -34,34 +35,35 @@
 		</div>
 		<nav class="navbar">
 			<div class="container-fluid" style="background-color: #305979;">
+				<!-- top subbar -->
 				<% if current_page? root_path %>
 					<ul class="nav nav-tabs">
-						<li><a href="#topNews" role="button" class="btn" style="padding: 3px 16px;">Top News</a></li>
-						<li><a href="#trailer" role="button" class="btn" style="padding: 3px 16px;">Trailer</a></li>
-						<li><a href="#steam" role="button" class="btn" style="padding: 3px 16px;">Steam</a></li>
-						<li><a href="#gameSummary" role="button" class="btn" style="padding: 3px 16px;">Game Summary</a></li>
+						<li><a href="#topNews" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Top News</a></li>
+						<li><a href="#trailer" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Trailer</a></li>
+						<li><a href="#steam" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Steam</a></li>
+						<li><a href="#gameSummary" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Game Summary</a></li>
 					</ul>
 					<div style="padding: 5px 0; background-color: #034678;">
-						<h4 style="text-align: center; margin: 0;"><strong>Home Page</strong></h4>
+						<h4 style="text-align: center; margin: 0; color: #AAD7FD;"><strong>Home Page</strong></h4>
 					</div>
 				<% end %>
 				<% if current_page? blogs_path %>
 					<ul class="nav nav-tabs">
-						<li><a href="#newestPost" role="button" class="btn" style="padding: 3px 16px;">Newest Post</a></li>
-						<li><a href="#" role="button" class="btn" style="padding: 3px 16px;">Contact Us</a></li>
-						
+						<li><a href="#newestPost" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Newest Post</a></li>
+						<li><a href="#" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Contact Us</a></li>
+<!-- 
 						<li><a href="#postContent" role="button" class="btn" style="padding: 3px 16px;">Post Content</a></li>
 						<li><a href="#commnets" role="button" class="btn" style="padding: 3px 16px;">Comments</a></li>
 						<li><a href="#addAComment" role="button" class="btn" style="padding: 3px 16px;">Add a Comment</a></li>
-						<li><a href="#" role="button" class="btn" style="padding: 3px 16px;">Contact Us</a></li>
+						<li><a href="#" role="button" class="btn" style="padding: 3px 16px;">Contact Us</a></li> -->
 					</ul>
 					<div style="padding: 5px 0; background-color: #034678;">
-						<h4 style="text-align: center; margin: 0;"><strong>Blog</strong></h4>
+						<h4 style="text-align: center; margin: 0; color: #AAD7FD;"><strong>Blog</strong></h4>
 					</div>
 				<% end %>
 			</div>
 		</nav>
-		<div class="container">
+		<div class="container-fluid" style="margin: 0 16px;">
 
 			<%= yield %>
 
