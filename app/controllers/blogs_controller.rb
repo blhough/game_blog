@@ -5,11 +5,13 @@ class BlogsController < ApplicationController
   # GET /blogs.json
   def index
     @blogs = Blog.all
+    @newestPost = @blogs.first
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    @comments = BlogComment.all.where(blog_id: @blog.id)
   end
 
   # GET /blogs/new
