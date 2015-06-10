@@ -36,27 +36,7 @@
 		<nav class="navbar">
 			<div class="container-fluid" style="background-color: #305979;">
 				<!-- top subbar -->
-				<% if current_page? root_path %>
-					<ul class="nav nav-tabs">
-						<li><a href="#topNews" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Top News</a></li>
-						<li><a href="#trailer" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Trailer</a></li>
-						<li><a href="#steam" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Steam</a></li>
-						<li><a href="#gameSummary" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Game Summary</a></li>
-					</ul>
-					<div style="padding: 5px 0; background-color: #034678;">
-						<h4 style="text-align: center; margin: 0; color: #AAD7FD;"><strong>Home Page</strong></h4>
-					</div>
-				<% end %>
-				<% if current_page? blogs_path %>
-					<ul class="nav nav-tabs">
-						<li><a href="#newestPost" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Newest Post</a></li>
-						<li><%= link_to 'Add a Post', new_blog_path, class: "btn admin-btn", role: "button", style:"padding: 3px 16px; color: #E9FFFF;" %></li>
-						<li><a href="#" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Contact Us</a></li>
-					</ul>
-					<div style="padding: 5px 0; background-color: #034678;">
-						<h4 style="text-align: center; margin: 0; color: #AAD7FD;"><strong>Blog</strong></h4>
-					</div>
-				<% end %>
+				<%= render partial: "subbar" %>
 			</div>
 		</nav>
 		<div class="container" style="margin: 0 64px;">
