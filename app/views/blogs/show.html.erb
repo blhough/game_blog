@@ -1,20 +1,23 @@
+
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @blog.body %>
-</p>
-
+<div class="panel panel-default"><!-- 
+	<%= link_to 'Destroy', @blog, method: :delete, data: { confirm: "Are you sure you'd like to delete @{@blog.title}" }, class: "admin-btn" %> 
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<%= link_to 'Back', blogs_path %>-->
+	<div class="panel-heading">
+	  <h3><%= @blog.title %></h3>
+	  <p style="text-align: right;"><%= @blog.created_at.to_s %></p>
+	</div>
+	<div class="panel-body">
+	  <p><%= @blog.body %></p>
+	</div>
+</div>
 
-<p>comments</p>
-<% @comments.each do |comment| %>
-	<h3><%= comment.name %></h3>
-		<p><%= comment.comment %></p>
-<% end %>
+
+<h1 id="comments">comments</h1>
+	<% @comments.each do |comment| %>
+		<h3><%= comment.name %></h3>
+			<p><%= comment.comment %></p>
+	<% end %>
