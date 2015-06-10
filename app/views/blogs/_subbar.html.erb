@@ -11,6 +11,8 @@
 	<% else %>
 		<ul class="nav nav-tabs">
 			<li><a href="#content" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Post Content</a></li>
+			<li><a href="#coments" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Comments</a></li>
+			<li><%= link_to 'Add a Comment', new_blog_comment_path(name: 'sdjkfajdf;'), class: "btn", role: "button", style:"padding: 3px 16px; color: #E9FFFF;" %></li>
 			<li><%= link_to 'Edit', edit_blog_path(@blog), class: "btn admin-btn", role: "button", style:"padding: 3px 16px; color: #E9FFFF;" %></li>
 			<li><%= link_to 'Destroy', @blog, method: :delete, data: { confirm: "Are you sure you'd like to delete, #{@blog.title}" }, class: "btn admin-btn", role: "button", style:"padding: 3px 16px; color: #E9FFFF;" %></li>
 			<li><a href="#" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Contact Us</a></li>
