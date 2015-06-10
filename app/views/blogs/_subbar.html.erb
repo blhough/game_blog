@@ -1,20 +1,40 @@
-<% if @blog == nil %>
+<% unless current_page?(controller: 'blogs', action: 'new') or @blog != nil && current_page?(controller: 'blogs', action: 'edit') %>
+	<% if @blog == nil %>
+		<ul class="nav nav-tabs">
+			<li><a href="#newestPost" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Newest Post</a></li>
+			<li><%= link_to 'Add a Post', new_blog_path, class: "btn admin-btn", role: "button", style:"padding: 3px 16px; color: #E9FFFF;" %></li>
+			<li><a href="#" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Contact Us</a></li>
+		</ul>
+		<div style="padding: 5px 0; background-color: #034678;">
+			<h4 style="text-align: center; margin: 0; color: #AAD7FD;"><strong>Blog</strong></h4>
+		</div>
+	<% else %>
+		<ul class="nav nav-tabs">
+			<li><a href="#content" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Post Content</a></li>
+			<li><%= link_to 'Edit', edit_blog_path(@blog), class: "btn admin-btn", role: "button", style:"padding: 3px 16px; color: #E9FFFF;" %></li>
+			<li><%= link_to 'Destroy', @blog, method: :delete, data: { confirm: "Are you sure you'd like to delete, #{@blog.title}" }, class: "btn admin-btn", role: "button", style:"padding: 3px 16px; color: #E9FFFF;" %></li>
+			<li><a href="#" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Contact Us</a></li>
+		</ul>
+		<div style="padding: 5px 0; background-color: #034678;">
+			<h4 style="text-align: center; margin: 0; color: #AAD7FD;"><strong><%= @blog.title %></strong></h4>
+		</div>
+	<% end %>
+<% else %>
+	<% if current_page?(controller: 'blogs', action: 'new') %>
+		<% boolIsAddingPost = true; %>
+	<% else %>
+		<% boolIsAddingPost = false; %>
+	<% end %>
 	<ul class="nav nav-tabs">
-		<li><a href="#newestPost" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Newest Post</a></li>
-		<li><%= link_to 'Add a Post', new_blog_path, class: "btn admin-btn", role: "button", style:"padding: 3px 16px; color: #E9FFFF;" %></li>
-		<li><a href="#" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Contact Us</a></li>
+		<li><a href="#content" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">f.submit</a></li>
+		<% if boolIsAddingPost %>
+			<li><%= link_to 'Discard Post', @blog, class: "btn admin-btn", role: "button", style:"padding: 3px 16px; color: #E9FFFF;" %></li>
+		<% else %>
+			<li><%= link_to 'Revert Changes', @blog, class: "btn admin-btn", role: "button", style:"padding: 3px 16px; color: #E9FFFF;" %></li>
+			<li><%= link_to 'Destroy', @blog, method: :delete, data: { confirm: "Are you sure you'd like to delete this post" }, class: "btn admin-btn", role: "button", style:"padding: 3px 16px; color: #E9FFFF;" %></li>
+		<% end %>
 	</ul>
 	<div style="padding: 5px 0; background-color: #034678;">
-		<h4 style="text-align: center; margin: 0; color: #AAD7FD;"><strong>Blog</strong></h4>
-	</div>
-<% end %>
-<% if @blog != nil %>
-	<ul class="nav nav-tabs">
-		<li><a href="#newestPost" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Newest Post</a></li>
-		<li><%= link_to 'Add a Post', new_blog_path, class: "btn admin-btn", role: "button", style:"padding: 3px 16px; color: #E9FFFF;" %></li>
-		<li><a href="#" role="button" class="btn" style="padding: 3px 16px; color: #E9FFFF;">Contact Us</a></li>
-	</ul>
-	<div style="padding: 5px 0; background-color: #034678;">
-		<h4 style="text-align: center; margin: 0; color: #AAD7FD;"><strong><%= @blog.title %></strong></h4>
+		<h4 style="text-align: center; margin: 0; color: #AAD7FD;"><strong><%= @blog.title %><%= boolIsAddingPost ? " #new" : " #edit" %></strong></h4>
 	</div>
 <% end %>
