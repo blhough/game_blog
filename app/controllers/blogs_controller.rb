@@ -4,7 +4,7 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    @blogs = Blog.all.sort { |a,b| b.created_at <=> a.created_at }
     @newestPost = @blogs.first
   end
 
